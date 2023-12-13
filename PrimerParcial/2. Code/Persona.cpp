@@ -1,11 +1,12 @@
 /***********************************************************************
  * Module:  Persona.cpp
  * Author:  Cesar Loor
- * Modified: miércoles, 13 de diciembre de 2023 1:33:02
+ * Modified: miï¿½rcoles, 13 de diciembre de 2023 1:33:02
  * Purpose: Implementation of the class Persona
  ***********************************************************************/
 
 #include "Persona.h"
+#include <string>
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Persona::getNombre()

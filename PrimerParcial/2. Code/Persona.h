@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Persona.h
  * Author:  Cesar Loor
- * Modified: miércoles, 13 de diciembre de 2023 1:33:02
+ * Modified: miï¿½rcoles, 13 de diciembre de 2023 1:33:02
  * Purpose: Declaration of the class Persona
  ***********************************************************************/
 
@@ -24,6 +24,7 @@ protected:
 private:
    std::string Nombre;
    std::string Apellido;
+   /// @brief 
    int cedula;
 
 
