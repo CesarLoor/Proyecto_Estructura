@@ -7,6 +7,7 @@
 
 #if !defined(__Modelo_Proyect_P1_Validacion_h)
 #define __Modelo_Proyect_P1_Validacion_h
+#include"Fecha.h"
 
 class Validacion
 {
