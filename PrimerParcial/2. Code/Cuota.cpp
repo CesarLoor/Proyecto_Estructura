@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Cuota.cpp
- * Author:  PC DIGITAL
- * Modified: miércoles, 13 de diciembre de 2023 12:35:32
+ * Author:  Cesar Loor
+ * Modified: miï¿½rcoles, 13 de diciembre de 2023 12:35:32
  * Purpose: Implementation of the class Cuota
  ***********************************************************************/
 
