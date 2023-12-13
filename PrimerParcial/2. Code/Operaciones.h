@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Operaciones.h
- * Author:  Cesar Loor
+ * Author:  PC DIGITAL
  * Modified: miércoles, 13 de diciembre de 2023 1:32:00
  * Purpose: Declaration of the class Operaciones
  ***********************************************************************/
