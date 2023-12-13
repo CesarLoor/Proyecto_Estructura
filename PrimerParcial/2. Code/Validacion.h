@@ -11,13 +11,14 @@
 class Validacion
 {
 public:
-   int IngresarDatosEnteros(void);
+   int IngresarDatosEnteros(const char* msj);
    int IngresarDatosFloat(void);
    int IngresarCedula(void);
    bool ValidarCedulaReal(void);
 
 protected:
 private:
+	void backSpace(char* datos, int& i);
 
 };
 
