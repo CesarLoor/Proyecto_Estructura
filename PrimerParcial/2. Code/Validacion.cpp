@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Validacion.cpp
- * Author:  Cesar Loor
+ * Author:  Cesar Loor and Carlos Jaya
  * Modified: miércoles, 13 de diciembre de 2023 1:36:21
  * Purpose: Implementation of the class Validacion
  * contacto: ciloor2@espe.edu.ec 

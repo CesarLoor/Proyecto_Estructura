@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Validacion.h
- * Author:  Cesar Loor
+ * Author:  Cesar Loor and Carlos Jaya
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:36:21
  * Purpose: Declaration of the class Validacion
  ***********************************************************************/
@@ -42,6 +42,10 @@ private:
 	/// @param i 
 	void backSpace(char* datos, int& i);
    std::string cedula;
+   /// @brief 
+   /// @param cedulaSinVerificador 
+   /// @param verificador 
+   /// @return 
    bool ValidarDigitoVerificador(const std::string& cedulaSinVerificador, int verificador);
 
 };
