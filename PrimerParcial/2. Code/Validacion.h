@@ -36,6 +36,7 @@ private:
 	/// @param datos 
 	/// @param i 
 	void backSpace(char* datos, int& i);
+   std::string cedula;
 
 };
 

@@ -3,6 +3,7 @@
  * Author:  Cesar Loor
  * Modified: miércoles, 13 de diciembre de 2023 1:36:21
  * Purpose: Implementation of the class Validacion
+ * contacto: ciloor2@espe.edu.ec 
  ***********************************************************************/
 #include <iostream>
 #include <stdlib.h>
@@ -44,35 +45,61 @@ int Validacion::IngresarDatosEnteros(const char* msj)
     return atoi(datos);
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Validacion::IngresarDatosFloat()
-// Purpose:    Implementation of Validacion::IngresarDatosFloat()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
 int Validacion::IngresarDatosFloat(void)
 {
-   // TODO : implement
+      float dato;
+    std::cout << "Ingrese un valor decimal: ";
+    while (!(std::cin >> dato))
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Error. Ingrese un valor decimal: ";
+    }
+    return dato;
 }
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Validacion::IngresarCedula()
-// Purpose:    Implementation of Validacion::IngresarCedula()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
 
 int Validacion::IngresarCedula(void)
 {
-   // TODO : implement
+   cedula.clear(); // Limpiar cedula antes de la nueva entrada
+    std::cout << "Ingrese el numero de cedula: ";
+    std::cin >> cedula;
+    return 0; // O cualquier valor que desees devolver
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Validacion::ValidarCedulaReal()
-// Purpose:    Implementation of Validacion::ValidarCedulaReal()
-// Return:     bool
-////////////////////////////////////////////////////////////////////////
 
 bool Validacion::ValidarCedulaReal(void)
 {
-   // TODO : implement
+    // Validar la longitud de la cédula (debe ser de 10 dígitos)
+    if (cedula.length() != 10)
+    {
+        std::cout << "La cedula debe tener 10 digitos." << std::endl;
+        return false;
+    }
+
+    // Validar que la cédula contenga solo dígitos
+    if (!std::regex_match(cedula, std::regex("\\d+")))
+    {
+        std::cout << "La cedula debe contener solo numeros." << std::endl;
+        return false;
+    }
+
+    // Validar el décimo dígito (provincia)
+    int provincia = std::stoi(cedula.substr(0, 2));
+    if (provincia < 0 || provincia > 24)
+    {
+        std::cout << "El codigo de provincia no es valido." << std::endl;
+        return false;
+    }
+
+    // Validar el dígito verificador
+    int verificador = std::stoi(cedula.substr(9, 1));
+    if (!ValidarDigitoVerificador(cedula.substr(0, 9), verificador))
+    {
+        std::cout << "El digito verificador no es valido." << std::endl;
+        return false;
+    }
+
+    // Si pasa todas las validaciones, la cédula es válida
+    std::cout << "La cedula es valida." << std::endl;
+    return true;
 }
