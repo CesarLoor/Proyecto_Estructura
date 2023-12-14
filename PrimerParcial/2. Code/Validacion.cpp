@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <stdio.h>
+#include <regex>
 #include <string>
 #include "Validacion.h"
 

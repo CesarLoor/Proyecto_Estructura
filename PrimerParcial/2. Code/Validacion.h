@@ -8,6 +8,11 @@
 #if !defined(__Modelo_Proyect_P1_Validacion_h)
 #define __Modelo_Proyect_P1_Validacion_h
 #include"Fecha.h"
+#include <string>
+#include<iostream>
+#include <stdlib.h>
+#include <conio.h>
+#include <stdio.h>
 
 /// @brief 
 class Validacion
@@ -37,6 +42,7 @@ private:
 	/// @param i 
 	void backSpace(char* datos, int& i);
    std::string cedula;
+   bool ValidarDigitoVerificador(const std::string& cedulaSinVerificador, int verificador);
 
 };
 
