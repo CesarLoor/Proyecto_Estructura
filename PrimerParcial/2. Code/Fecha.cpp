@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Fecha.cpp
  * Author:  Cesar Loor
- * Modified: miércoles, 13 de diciembre de 2023 1:29:11
+ * Modified: miï¿½rcoles, 13 de diciembre de 2023 1:29:11
  * Purpose: Implementation of the class Fecha
  ***********************************************************************/
 
