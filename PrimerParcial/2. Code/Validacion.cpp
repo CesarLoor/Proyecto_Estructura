@@ -45,7 +45,7 @@ int Validacion::IngresarDatosEnteros(const char* msj)
     datos[i] = '\0';
     return atoi(datos);
 }
-
+/*
 int Validacion::IngresarDatosFloat(void)
 {
       float dato;
@@ -58,6 +58,7 @@ int Validacion::IngresarDatosFloat(void)
     }
     return dato;
 }
+*/
 
 int Validacion::IngresarCedula(void)
 {
