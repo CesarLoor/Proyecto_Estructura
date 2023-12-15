@@ -4,7 +4,8 @@
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:33:02
  * Purpose: Declaration of the class Persona
  ***********************************************************************/
-
+#include<iostream>
+#include <string.h>
 #if !defined(__Modelo_Proyect_P1_Persona_h)
 #define __Modelo_Proyect_P1_Persona_h
 
