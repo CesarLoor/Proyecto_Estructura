@@ -1,7 +1,8 @@
 /***********************************************************************
  * Module:  Validacion.h
  * Author:  Cesar Loor and Carlos Jaya
- * Modified: mi�rcoles, 13 de diciembre de 2023 1:36:21
+ * Create: miércoles, 13 de diciembre de 2023 1:36:21
+ * Modified: Viernes, 15 de diciembre de 2023 15:10:04
  * Purpose: Declaration of the class Validacion
  ***********************************************************************/
 
@@ -35,6 +36,8 @@ public:
    /// @param  
    /// @return 
    bool ValidarCedulaReal(void);
+   float ingresar_reales(const char* msj);
+   int borrar (char* datos, int &i);
 
 protected:
 private:

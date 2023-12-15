@@ -1,7 +1,8 @@
 /***********************************************************************
  * Module:  Validacion.cpp
  * Author:  Cesar Loor and Carlos Jaya
- * Modified: miércoles, 13 de diciembre de 2023 1:36:21
+ * Create: miércoles, 13 de diciembre de 2023 1:36:21
+ * Modified: Viernes, 15 de diciembre de 2023 15:10:04
  * Purpose: Implementation of the class Validacion
  * contacto: ciloor2@espe.edu.ec 
  ***********************************************************************/
@@ -40,6 +41,51 @@ int Validacion::IngresarDatosEnteros(const char* msj)
     }
     datos[i] = '\0';
     return atoi(datos);
+}
+int borrar(char* datos, int& i) {
+    if (i > 0) {
+        std::cout << "\b \b";
+        i--;
+        datos[i] = '\0';
+        return i;
+    }
+    return 0;
+}
+
+float ingresar_reales(const char* msj) {
+    char* datos = new char[12];
+    char c;
+    int i = 0;
+    bool hay_punto = false;
+    int posicion_punto;
+
+    std::cout<<msj<<std::endl;
+
+    while ((c = getch()) != 13 && i < 11) {
+        if ((c >= '0' && c <= '9') || (c == '.' && !hay_punto)|| c == 8 || c == '-') {
+            if(!((c == '.')&& i == 0)){
+                if(!((c == '-') && i != 0)){
+                    if (c == 8) {
+                        i = borrar(datos, i);
+                        if((i+1) == posicion_punto){
+                            hay_punto = false;
+                        }
+                    }
+                    else {
+                        std::cout<<c;
+                        datos[i++] = c;
+
+                        if (c == '.') {
+                            posicion_punto = i;
+                            hay_punto = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    datos[i] = '\0';
+    return atof(datos);
 }
 
 int Validacion::IngresarDatosFloat(void)
