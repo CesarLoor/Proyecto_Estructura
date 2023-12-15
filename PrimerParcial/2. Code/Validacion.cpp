@@ -14,11 +14,6 @@
 #include "Validacion.h"
 #include <limits>
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Validacion::IngresarDatosEnteros()
-// Purpose:    Implementation of Validacion::IngresarDatosEnteros()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
 void Validacion::backSpace(char* datos, int& i) {
     if (i > 0) {
         std::cout << "\b \b";
