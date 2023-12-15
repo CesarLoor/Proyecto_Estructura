@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Module:  amin.cpp
+ * Author:  Cesar Loor and Carlos Jaya 
+ * Modified: Viernes, 15 de diciembre de 2023 15:00:00
+ * Purpose: Dev the menu 
+ * contacto: ciloor2@espe.edu.ec 
+ ***********************************************************************/
 #include <iostream>
 #include <conio.h>
 #include "menu.cpp"

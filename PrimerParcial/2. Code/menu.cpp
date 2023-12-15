@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Module:  menu.cpp
+ * Author:  Cesar Loor 
+ * Modified: Viernes, 15 de diciembre de 2023 15:00:00
+ * Purpose: Implementation of the function menu
+ * contacto: ciloor2@espe.edu.ec 
+ ***********************************************************************/
 #include <iostream>
 #include <conio.h>
 
