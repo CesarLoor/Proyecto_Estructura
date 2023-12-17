@@ -7,6 +7,9 @@
  ***********************************************************************/
 #include <iostream>
 #include <conio.h>
+#include "Nodo.h"
+#include "ListaDoble.h"
+#include "Fecha.h"
 
 void mostrarContenidoOpcion(int opcion) {
     switch (opcion) {

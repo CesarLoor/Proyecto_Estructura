@@ -18,9 +18,9 @@ private:
 public:
     
     ListaDoble<T>();
-    void Insertar(int);
-    void Buscar(int);
-    void Eliminar(int);
+    void Insertar(T);
+    void Buscar(T);
+    void Eliminar(T);
     void Mostrar();
 };
 

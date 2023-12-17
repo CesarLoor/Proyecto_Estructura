@@ -14,7 +14,7 @@ ListaDoble<T>::ListaDoble() {
     ultimo = nullptr;
 }
 template <typename T>
-void ListaDoble<T>::Insertar(int _dato) {
+void ListaDoble<T>::Insertar(T _dato) {
     Nodo<T>* nuevo = new Nodo(_dato);
     if (primero == nullptr) {
         primero = nuevo;
@@ -27,7 +27,7 @@ void ListaDoble<T>::Insertar(int _dato) {
     }
 }
 template <typename T>
-void ListaDoble<T>::Buscar(int _dato) {
+void ListaDoble<T>::Buscar(T _dato) {
     Nodo<T>* aux = primero;
     while (aux != nullptr) {
         if (aux->getDato() == _dato) {
@@ -39,7 +39,7 @@ void ListaDoble<T>::Buscar(int _dato) {
     std::cout << "El dato " << _dato << " no se encuentra en la lista" << std::endl;
 }
 template <typename T>
-void ListaDoble<T>::Eliminar(int _dato) {
+void ListaDoble<T>::Eliminar(T _dato) {
     Nodo<T>* aux = primero;
     while (aux != nullptr) {
         if (aux->getDato() == _dato) {
