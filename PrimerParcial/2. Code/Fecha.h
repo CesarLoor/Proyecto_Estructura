@@ -7,10 +7,11 @@
 
 #if !defined(__Modelo_Proyect_P1_Fecha_h)
 #define __Modelo_Proyect_P1_Fecha_h
-
+#include ""
 class Fecha
 {
 public:
+   Fecha(int d, int m, int a) : dia(d), mes(m), anio(a) {};
    int getDia(void);
    void setDia(int newDia);
    int getMes(void);
@@ -21,6 +22,7 @@ public:
    bool es_feriado();
    int dia_de_la_semana();
    bool fecha_valida();
+   Fecha dias_de_paga();
 
 protected:
 private:

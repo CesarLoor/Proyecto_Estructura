@@ -106,6 +106,13 @@ bool Fecha::fecha_valida() {
     
 }
 
+Fecha Fecha::dias_de_paga()
+{
+   int dian,mesn,anion;
+   if(dia_de_la_semana()==0)
+    return Fecha();
+}
+
 int Fecha::dia_de_la_semana() {
     if (!fecha_valida(anio, mes, dia)) {
         std::cout << "Invalid date." << std::endl;
