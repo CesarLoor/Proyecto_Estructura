@@ -4,7 +4,7 @@
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:29:11
  * Purpose: Implementation of the class Fecha
  ***********************************************************************/
-
+#include <iostream>
 #include "Fecha.h"
 #include "ListaDoble.h"
 ////////////////////////////////////////////////////////////////////////
@@ -117,38 +117,55 @@ bool Fecha::fecha_valida() {
     
 }
 
-ListaDoble<T>* Fecha::dias_de_paga(Fecha fecha_de_paga)
+Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga){
+   Fecha fecha_nueva=fecha_de_paga;
+   int dias_por_mes = 31;
+      if (fecha_nueva.getMes() == 4 ||fecha_nueva.getMes() == 6 ||fecha_nueva.getMes() == 9 ||fecha_nueva.getMes() == 11) {
+        dias_por_mes = 30;
+      } else if (fecha_nueva.getMes() == 2) {
+        dias_por_mes = es_bisiesto() ? 29 : 28;
+    }
+
+         if (fecha_nueva.es_feriado()||fecha_nueva.dia_de_la_semana()==0||fecha_nueva.dia_de_la_semana()==1){
+            if (fecha_nueva.getDia()<dias_por_mes){
+               fecha_nueva.setDia(fecha_nueva.getDia()+1);
+               
+               
+               }else if(fecha_nueva.getMes()<12){
+                  fecha_nueva.setDia(1);
+                  fecha_nueva.setMes(fecha_nueva.getDia()+1);
+
+               }else{
+                  fecha_nueva.setDia(1);
+                  fecha_nueva.setMes(1);
+                  fecha_nueva.setAnio(fecha_nueva.getAnio()+1);
+
+               }
+            
+
+         }
+         aumentar_dia_si_no_es_laborable(fecha_nueva);
+         return fecha_nueva;
+    }
+
+
+
+
+ListaDoble<Fecha>* Fecha::dias_de_paga(Fecha fecha_de_paga)
 {  
    ListaDoble<Fecha>* lista_de_fechas =new ListaDoble<Fecha>();
    
    Fecha fecha_nueva(fecha_de_paga.getDia(), fecha_de_paga.getMes(), fecha_de_paga.getAnio());
-   lista_de_fechas->Insertar();
+   lista_de_fechas->Insertar(fecha_nueva);
    int anio_destino=getAnio()+1;
     int nuevo_dia = getDia();
     int nuevo_mes = getMes();
     int nuevo_anio = getAnio();
-   while(fecha_nueva.getAnio()!=anio_destino && fecha_nueva.getMes()!=fecha_de_paga.getMes();){
+   while(fecha_nueva.getAnio()!=anio_destino && fecha_nueva.getMes()!=fecha_de_paga.getMes()){
       
       
       while (fecha_nueva.dia_de_la_semana() == 0 ||fecha_nueva.dia_de_la_semana() == 1 ||fecha_nueva.es_feriado()) {
-      int dias_por_mes = 31;
-      if (nuevo_mes == 4 ||nuevo_mes == 6 ||nuevo_mes == 9 ||nuevo_mes == 11) {
-        dias_por_mes = 30;
-      } else if (nuevo_mes == 2) {
-        dias_por_mes = es_bisiesto() ? 29 : 28;
-    }
-         if (nuevo_dia > dias_por_mes) {
-            nuevo_dia = 1;
-            nuevo_mes++;
-
-          
-            if (nuevo_mes > 12) {
-                nuevo_mes = 1;
-                nuevo_anio++;
-            }
-        }
-    }
-
+      
    }
     
 
@@ -156,13 +173,14 @@ ListaDoble<T>* Fecha::dias_de_paga(Fecha fecha_de_paga)
       fecha_nueva.setMes(nuevo_mes);
       fecha_nueva.setDia(nuevo_dia);
     
-    return fecha_nueva;
+    
     
 }
-
+return lista_de_fechas;
+}
 int Fecha::dia_de_la_semana() {
     if (!fecha_valida()) {
-        std::cout << "Invalid date." << std::endl;
+        std::cout << "Fecha no valida." << std::endl;
         return 7;
     }
     if (mes == 1) {
@@ -234,4 +252,5 @@ bool Fecha::es_feriado(){
 }else{
     return false;
 }
+return false;
 }

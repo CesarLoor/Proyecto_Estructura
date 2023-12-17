@@ -23,10 +23,11 @@ public:
    bool es_feriado();
    int dia_de_la_semana();
    bool fecha_valida();
-   ListaDoble<T>* dias_de_paga();
-
+   ListaDoble<Fecha>* dias_de_paga(Fecha dias_de_paga);
+   Fecha aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga);
 protected:
 private:
+   ListaDoble<Fecha>* lista_de_Fechas_de_Paga;
    int dia;
    int mes;
    int anio;

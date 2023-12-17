@@ -8,7 +8,6 @@
 using namespace std;
 
 int main() {
-    ListaDoble<Fecha>* lista_doble =new ListaDoble<Fecha>();
     int opcionSeleccionada = manejarMenu();
     
 
