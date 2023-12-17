@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Fecha.h
  * Author:  Cesar Loor
- * Modified: miércoles, 13 de diciembre de 2023 1:29:11
+ * Modified: miï¿½rcoles, 13 de diciembre de 2023 1:29:11
  * Purpose: Declaration of the class Fecha
  ***********************************************************************/
 
@@ -17,6 +17,10 @@ public:
    void setMes(int newMes);
    int getAnio(void);
    void setAnio(int newAnio);
+   bool es_bisiesto();
+   bool es_feriado();
+   int dia_de_la_semana();
+   bool fecha_valida();
 
 protected:
 private:
