@@ -1,101 +1,60 @@
 /***********************************************************************
- * Module:  Nodo.cpp
- * Author:  Cesar Loor
- * Modified: miércoles, 13 de diciembre de 2023 1:49:00
- * Purpose: Implementation of the class Nodo
+ UFA - ESPE
+ * Module:  Nodo.h
+ * Author:  Carlos Jaya
+ * Modified: martes, 12 de diciembre de 2023 18:50:27 p. m.
+ * Purpose: Declaration of the class Nodo
  ***********************************************************************/
 
 #include "Nodo.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getDato()
-// Purpose:    Implementation of Nodo::getDato()
-// Return:     T
-////////////////////////////////////////////////////////////////////////
-
-T Nodo::getDato(void)
+template <typename T>
+Nodo<T>::Nodo(T _valor, Nodo<T>* _siguiente)
 {
-   return dato;
+    valor = _valor;
+    siguiente = _siguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setDato(T newDato)
-// Purpose:    Implementation of Nodo::setDato()
-// Parameters:
-// - newDato
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setDato(T newDato)
+template <typename T>
+Nodo<T>::Nodo(T _valor)
 {
-   dato = newDato;
+    valor = _valor;
+    siguiente = nullptr;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getSiguiente()
-// Purpose:    Implementation of Nodo::getSiguiente()
-// Return:     Nodo*
-////////////////////////////////////////////////////////////////////////
+template <typename T>
+Nodo<T>::Nodo()
+{
+}
 
-Nodo* Nodo::getSiguiente(void)
+template <typename T>
+Nodo<T>::~Nodo()
+{
+   // TODO : implement
+}
+
+template <typename T>
+T Nodo<T>::get_valor()
+{
+   return valor;
+}
+
+template <typename T>
+void Nodo<T>::set_valor(T new_valor)
+{
+   valor = new_valor;
+}
+
+template <typename T>
+Nodo<T>* Nodo<T>::get_siguiente()
 {
    return siguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setSiguiente(Nodo* newSiguiente)
-// Purpose:    Implementation of Nodo::setSiguiente()
-// Parameters:
-// - newSiguiente
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setSiguiente(Nodo* newSiguiente)
+template <typename T>
+void Nodo<T>::set_siguiente(Nodo<T>* new_siguiente)
 {
-   siguiente = newSiguiente;
+   siguiente = new_siguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getAnterior()
-// Purpose:    Implementation of Nodo::getAnterior()
-// Return:     Nodo*
-////////////////////////////////////////////////////////////////////////
 
-Nodo* Nodo::getAnterior(void)
-{
-   return anterior;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setAnterior(Nodo* newAnterior)
-// Purpose:    Implementation of Nodo::setAnterior()
-// Parameters:
-// - newAnterior
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setAnterior(Nodo* newAnterior)
-{
-   anterior = newAnterior;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::Nodo()
-// Purpose:    Implementation of Nodo::Nodo()
-// Return:     
-////////////////////////////////////////////////////////////////////////
-
-Nodo::Nodo()
-{
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::~Nodo()
-// Purpose:    Implementation of Nodo::~Nodo()
-// Return:     
-////////////////////////////////////////////////////////////////////////
-
-Nodo::~Nodo()
-{
-   // TODO : implement
-}

@@ -1,35 +1,31 @@
 /***********************************************************************
+ UFA - ESPE
  * Module:  Nodo.h
- * Author:  Cesar Loor
- * Modified: mi�rcoles, 13 de diciembre de 2023 1:49:00
+ * Author:  Carlos Jaya
+ * Modified: martes, 12 de diciembre de 2023 18:50:27 p. m.
  * Purpose: Declaration of the class Nodo
  ***********************************************************************/
 
-#if !defined(__Modelo_Proyect_P1_Nodo_h)
-#define __Modelo_Proyect_P1_Nodo_h
-   
-   /// @brief 
-   /// @tparam T 
-   template<typename T>
-   
+#if !defined(__Class_Diagram_1_Nodo_h)
+#define __Class_Diagram_1_Nodo_h
+
+template <typename T>
 class Nodo
 {
 public:
-   T getDato(void);
-   void setDato(T newDato);
-   Nodo* getSiguiente(void);
-   void setSiguiente(Nodo* newSiguiente);
-   Nodo* getAnterior(void);
-   void setAnterior(Nodo* newAnterior);
-   Nodo();
-   ~Nodo();
+    Nodo<T>(T _valor, Nodo* _siguiente);
+    Nodo<T>(T _valor);
+    Nodo<T>();
+    ~Nodo<T>();
+    T get_valor();
+    void set_valor(T new_valor);
+    Nodo<T>* get_siguiente();
+    void set_siguiente(Nodo<T>* new_siguiente);
 
 protected:
 private:
-   /// @brief 
-   T dato;
-   Nodo* siguiente;
-   Nodo* anterior;
+   T valor;
+   Nodo<T>* siguiente;
 
 
 };

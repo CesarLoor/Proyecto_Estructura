@@ -94,7 +94,7 @@ bool Fecha::fecha_valida() {
     if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
         dias_por_mes = 30;
     } else if (mes == 2) {
-        dias_por_mes = es_bisiesto(anio) ? 29 : 28;
+        dias_por_mes = es_bisiesto() ? 29 : 28;
     }
     
     if (dia >= 1 && dia <= dias_por_mes){
@@ -110,11 +110,11 @@ Fecha Fecha::dias_de_paga()
 {
    int dian,mesn,anion;
    if(dia_de_la_semana()==0)
-    return Fecha();
+    return Fecha(dian,mesn,anion);
 }
 
 int Fecha::dia_de_la_semana() {
-    if (!fecha_valida(anio, mes, dia)) {
+    if (!fecha_valida()) {
         std::cout << "Invalid date." << std::endl;
         return 7;
     }

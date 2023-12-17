@@ -7,6 +7,7 @@
 
 #if !defined(__Modelo_Proyect_P1_Operaciones_h)
 #define __Modelo_Proyect_P1_Operaciones_h
+#include"nodo.cpp"
 
 using namespace std;
 template <typename T>
@@ -15,6 +16,7 @@ private:
     Nodo<T>* primero;
     Nodo<T>* ultimo;
 public:
+    
     ListaDoble<T>();
     void Insertar(int);
     void Buscar(int);

@@ -6,15 +6,17 @@
  * Purpose: Declaration of the class Operaciones
  ***********************************************************************/
 
-#include "ListaDoble.h"
-ListaDoble::ListaDoble() {
-    primero = NULL;
-    ultimo = NULL;
+#include "ListaDoble.h" 
+#include <iostream>
+template <typename T>
+ListaDoble<T>::ListaDoble() {
+    primero = nullptr;
+    ultimo = nullptr;
 }
-
-void ListaDoble::Insertar(int _dato) {
-    Nodo* nuevo = new Nodo(_dato);
-    if (primero == NULL) {
+template <typename T>
+void ListaDoble<T>::Insertar(int _dato) {
+    Nodo<T>* nuevo = new Nodo(_dato);
+    if (primero == nullptr) {
         primero = nuevo;
         ultimo = nuevo;
     }
@@ -24,49 +26,49 @@ void ListaDoble::Insertar(int _dato) {
         ultimo = nuevo;
     }
 }
-
-void ListaDoble::Buscar(int _dato) {
-    Nodo* aux = primero;
-    while (aux != NULL) {
+template <typename T>
+void ListaDoble<T>::Buscar(int _dato) {
+    Nodo<T>* aux = primero;
+    while (aux != nullptr) {
         if (aux->getDato() == _dato) {
-            cout << "El dato " << _dato << " se encuentra en la lista" << endl;
+            std::cout << "El dato " << _dato << " se encuentra en la lista" << std::endl;
             return;
         }
         aux = aux->getSiguiente();
     }
-    cout << "El dato " << _dato << " no se encuentra en la lista" << endl;
+    std::cout << "El dato " << _dato << " no se encuentra en la lista" << std::endl;
 }
-
-void ListaDoble::Eliminar(int _dato) {
-    Nodo* aux = primero;
-    while (aux != NULL) {
+template <typename T>
+void ListaDoble<T>::Eliminar(int _dato) {
+    Nodo<T>* aux = primero;
+    while (aux != nullptr) {
         if (aux->getDato() == _dato) {
             if (aux == primero) {
                 primero = primero->getSiguiente();
-                primero->setAnterior(NULL);
+                primero->setAnterior(nullptr);
             }
             else if (aux == ultimo) {
                 ultimo = ultimo->getAnterior();
-                ultimo->setSiguiente(NULL);
+                ultimo->setSiguiente(nullptr);
             }
             else {
                 aux->getAnterior()->setSiguiente(aux->getSiguiente());
                 aux->getSiguiente()->setAnterior(aux->getAnterior());
             }
             delete aux;
-            cout << "El dato " << _dato << " se ha eliminado de la lista" << endl;
+            std::cout << "El dato " << _dato << " se ha eliminado de la lista" << std::endl;
             return;
         }
         aux = aux->getSiguiente();
     }
-    cout << "El dato " << _dato << " no se encuentra en la lista" << endl;
+    std::cout << "El dato " << _dato << " no se encuentra en la lista" << std::endl;
 }
-
-void ListaDoble::Mostrar() {
-    Nodo* aux = primero;
-    while (aux != NULL) {
-        cout << aux->getDato() << " -> ";
+template <typename T>
+void ListaDoble<T>::Mostrar() {
+    Nodo<T>* aux = primero;
+    while (aux != nullptr) {
+       std::cout << aux->getDato() << " -> ";
         aux = aux->getSiguiente();
     }
-    cout << endl;
+    std::cout << std::endl;
 }
