@@ -25,8 +25,8 @@ public:
     void setAnio(int newAnio);
 
     bool es_bisiesto() const;
-    bool es_feriado() const;
-    int dia_de_la_semana() const;
+    bool es_feriado() ;
+    int dia_de_la_semana();
     bool fecha_valida() const;
     void MostrarFecha() const; // Agregada función para mostrar la fecha
 

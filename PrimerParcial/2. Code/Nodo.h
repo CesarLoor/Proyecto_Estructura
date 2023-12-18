@@ -12,7 +12,7 @@ template <typename T>
 class Nodo
 {
 public:
-    Nodo<T>(T _valor, Nodo* _siguiente);
+    Nodo<T>(T _valor, Nodo<T>* _siguiente);
     Nodo<T>(T _valor);
     Nodo<T>();
     ~Nodo<T>();

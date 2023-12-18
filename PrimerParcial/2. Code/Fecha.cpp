@@ -19,7 +19,7 @@ Fecha::Fecha()
 {
 }
 
-int Fecha::getDia(void)
+int Fecha::getDia(void) const
 {
    return dia;
 }
@@ -30,7 +30,7 @@ void Fecha::setDia(int newDia)
 }
 
 
-int Fecha::getMes(void)
+int Fecha::getMes(void) const
 {
    return mes;
 }
@@ -42,7 +42,7 @@ void Fecha::setMes(int newMes)
 }
 
 
-int Fecha::getAnio(void)
+int Fecha::getAnio(void) const
 {
    return anio;
 }
@@ -53,11 +53,11 @@ void Fecha::setAnio(int newAnio)
    anio = newAnio;
 }
 
-bool Fecha::es_bisiesto() {
+bool Fecha::es_bisiesto() const {
     return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
-bool Fecha::fecha_valida() {
+bool Fecha::fecha_valida() const {
     
     if (mes < 1 || mes > 12)
         return false;
@@ -79,7 +79,7 @@ bool Fecha::fecha_valida() {
     }
     
 }
-
+/*
 Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga) {
     Fecha fecha_nueva = fecha_de_paga;
     int dias_por_mes = 31;
@@ -108,7 +108,7 @@ Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga) {
 
     return fecha_nueva;
 }
-
+*/
 
 ListaDoble<Fecha>* Fecha::dias_de_paga(Fecha fecha_de_paga, int plazo)
 {  

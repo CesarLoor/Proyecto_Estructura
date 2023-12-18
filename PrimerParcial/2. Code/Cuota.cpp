@@ -14,7 +14,7 @@ Cuota::Cuota()
 }
 
 // Constructor con parámetros
-Cuota::Cuota(double montoPrincipal, double montoInteres, double montoTotal, Fecha fechaDePago, double saldoPendiente)
+Cuota::Cuota const(double montoPrincipal, double montoInteres, double montoTotal, Fecha fechaDePago, double saldoPendiente)
     : MontoPrincipal(montoPrincipal), MontodeInteres(montoInteres), MontoTotal(montoTotal), FechadePago(fechaDePago), SaldoPendiente(saldoPendiente)
 {
 }
@@ -54,10 +54,11 @@ Fecha Cuota::getFechaDePago() const
     return FechadePago;
 }
 
-void Cuota::setFechaDePago(Fecha fecha)
+void Cuota::setFechaDePago(Fecha *fecha)
 {
     FechadePago = fecha;
 }
+
 
 double Cuota::getSaldoPendiente() const
 {

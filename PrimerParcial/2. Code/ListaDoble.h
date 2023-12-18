@@ -14,6 +14,8 @@ class Cuota;
 
 using namespace std;
 template <typename T>
+
+
 class ListaDoble {
 private:
     Nodo<T>* primero;
@@ -27,6 +29,8 @@ public:
     void Mostrar();
 
  // Funciones para la tabla de amortización alemana
+    void GenerarTablaAmortizacion(double montoPrestamo, int plazoEnMeses);
+    double CalcularCuota(double montoPrestamo, double tasaInteresMensual, int plazoEnMeses);
     void InsertarCuota(Cuota cuota);
     void MostrarTablaAmortizacion();
 };

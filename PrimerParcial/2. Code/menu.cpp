@@ -24,7 +24,7 @@ void mostrarContenidoOpcion(int opcion) {
             std::cout << "Has seleccionado la Opcion 2. ";
             break;
         case 3:
-            std::cout << "Has seleccionado la opcion 3.\n";
+            generarTablaAmortizacion();  // Agregamos la generación de tabla en la opción 3
             break;
         case 4:
             std::cout << "Saliendo del programa. ¡Hasta luego!\n";
@@ -44,7 +44,7 @@ int manejarMenu() {
         std::cout <<"=== Menu ===\n";
         std::cout <<"1. Opcion 1\n";
         std::cout << "2. Opcion 2\n";
-        std::cout << "3. tabla\n";
+        std::cout << "3. Generar tabla de amortizacion\n";
         std::cout << "4. Salir\n";
         std::cout << "============\n";
 
@@ -70,14 +70,43 @@ int manejarMenu() {
 
     } while (tecla != 13);  
 
- 
-
-     generarTablaAmortizacion();
-
     mostrarContenidoOpcion(opcion);
 
     std::cout << "\nPresiona Enter para salir...";
     std::cin.get();
 
     return opcion;
+}
+
+void generarTablaAmortizacion() {
+    // Solicitar al usuario ingresar el monto del préstamo
+    double montoPrestamo;
+    std::cout << "Ingrese el monto del prestamo: ";
+    std::cin >> montoPrestamo;
+
+    // Validar que el monto del préstamo sea positivo
+    if (montoPrestamo <= 0) {
+        std::cerr << "Error: El monto del prestamo debe ser un valor positivo." << std::endl;
+        return;
+    }
+
+    // Solicitar al usuario ingresar el plazo en meses
+    int plazoEnMeses;
+    std::cout << "Ingrese el plazo en meses (entre 3 y 60 meses): ";
+    std::cin >> plazoEnMeses;
+
+    // Validar que el plazo esté en el rango permitido
+    if (plazoEnMeses < 3 || plazoEnMeses > 60) {
+        std::cerr << "Error: El plazo debe estar entre 3 y 60 meses." << std::endl;
+        return;
+    }
+
+    // Crear una instancia de ListaDoble
+    ListaDoble<Cuota> tablaAmortizacion;
+
+    // Generar la tabla de amortización
+    tablaAmortizacion.GenerarTablaAmortizacion(montoPrestamo, plazoEnMeses);
+
+    // Mostrar la tabla de amortización
+    tablaAmortizacion.MostrarTablaAmortizacion();
 }
