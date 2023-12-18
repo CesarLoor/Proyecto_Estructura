@@ -291,12 +291,22 @@ bool Fecha::es_feriado(){
 return false;
 }
 
-            /*Funciones para luego implementar en la tabla */
-    //Ya le miro dentro de un rato
-Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_valida){
-    //implementar
+void Fecha::MostrarFecha() const {
+    std::cout << dia << '/' << mes << '/' << anio << std::endl;
 }
 
-ListaDoble<Fecha>* Fecha::dias_de_paga(Fecha fecha_valida){
-    //implementar
+Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga) {
+    Fecha fecha_nueva = fecha_de_paga;
+
+    // Lógica para aumentar un día
+    // ...
+
+    while (fecha_nueva.es_feriado() || fecha_nueva.dia_de_la_semana() == 0 || fecha_nueva.dia_de_la_semana() == 1) {
+        // Aumentar un día si es feriado o fin de semana
+        // ...
+
+        fecha_nueva = aumentar_dia_si_no_es_laborable(fecha_nueva);
+    }
+
+    return fecha_nueva;
 }

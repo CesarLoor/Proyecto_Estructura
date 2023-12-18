@@ -5,31 +5,38 @@
  * Purpose: Declaration of the class Fecha
  ***********************************************************************/
 
+
 #if !defined(__Modelo_Proyect_P1_Fecha_h)
 #define __Modelo_Proyect_P1_Fecha_h
 #include "ListaDoble.h"
-class Fecha{
-public:
-   Fecha(int d, int m, int a);
-   Fecha();
 
-   int getDia(void);
-   void setDia(int newDia);
-   int getMes(void);
-   void setMes(int newMes);
-   int getAnio(void);
-   void setAnio(int newAnio);
-   bool es_bisiesto();
-   bool es_feriado();
-   int dia_de_la_semana();
-   bool fecha_valida();
-   ListaDoble<Fecha>* dias_de_paga(Fecha dias_de_paga, int plazo);
-   Fecha aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga);
-protected:
+template <typename T>
+class ListaDoble;
+class Fecha {
+public:
+    Fecha(int d, int m, int a);
+    Fecha();
+
+    int getDia() const;
+    void setDia(int newDia);
+    int getMes() const;
+    void setMes(int newMes);
+    int getAnio() const;
+    void setAnio(int newAnio);
+
+    bool es_bisiesto() const;
+    bool es_feriado() const;
+    int dia_de_la_semana() const;
+    bool fecha_valida() const;
+    void MostrarFecha() const; // Agregada función para mostrar la fecha
+
+    Fecha aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga);
+    ListaDoble<Fecha>* dias_de_paga(Fecha fecha_de_paga, int plazo);
+
 private:
-   ListaDoble<Fecha>* lista_de_Fechas_de_Paga;
-   int dia;
-   int mes;
-   int anio;
+    int dia;
+    int mes;
+    int anio;
 };
+
 #endif

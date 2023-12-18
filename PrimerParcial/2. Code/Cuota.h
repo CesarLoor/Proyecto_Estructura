@@ -8,36 +8,39 @@
 #if !defined(__Modelo_Proyect_P1_Cuota_h)
 #define __Modelo_Proyect_P1_Cuota_h
 
-#include"Fecha.h"
+#include "Fecha.h"
+class Fecha;
 
 class Cuota
-
 {
 public:
+    Cuota();  // Constructor predeterminado
+    Cuota(double montoPrincipal, double montoInteres, double montoTotal, Fecha fechaDePago, double saldoPendiente);  // Constructor con parámetros
 
-   int ActualizarSaldo(void);
-   int DetallesdeCouta(void);
-   int getMontoPrincipal(void);
-   void setMontoPrincipal(int newMontoPrincipal);
-   int getMontodeInteres(void);
-   void setMontodeInteres(int newMontodeInteres);
-   int getMontoTotal(void);
-   void setMontoTotal(int newMontoTotal);
-   int getFechadePago(void);
-   void setFechadePago(int newFechadePago);
-   int getSaldoPendiente(void);
-   void setSaldoPendiente(int newSaldoPendiente);
-   
+    // Funciones para la tabla de amortización alemana
+    double getMontoPrincipal() const;
+    void setMontoPrincipal(double monto);
 
-protected:
+    double getMontoInteres() const;
+    void setMontoInteres(double monto);
+
+    double getMontoTotal() const;
+    void setMontoTotal(double monto);
+
+    Fecha getFechaDePago() const;
+    void setFechaDePago(Fecha fecha);
+
+    double getSaldoPendiente() const;
+    void setSaldoPendiente(double saldo);
+
+    void MostrarCuota() const;
+
 private:
-   int MontoPrincipal;
-   int MontodeInteres;
-   int MontoTotal;
-   int FechadePago;
-   int SaldoPendiente;
-
-
+    double MontoPrincipal;
+    double MontodeInteres;
+    double MontoTotal;
+    Fecha FechadePago;
+    double SaldoPendiente;
 };
 
 #endif

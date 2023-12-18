@@ -4,10 +4,12 @@
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:32:00
  * Purpose: Declaration of the class Operaciones
  ***********************************************************************/
+class Cuota;
 
 #if !defined(__Modelo_Proyect_P1_Operaciones_h)
 #define __Modelo_Proyect_P1_Operaciones_h
 #include"Nodo.cpp"
+#include "Cuota.h"
 
 
 using namespace std;
@@ -23,6 +25,10 @@ public:
     void Buscar(T);
     void Eliminar(T);
     void Mostrar();
+
+ // Funciones para la tabla de amortización alemana
+    void InsertarCuota(Cuota cuota);
+    void MostrarTablaAmortizacion();
 };
 
 #endif

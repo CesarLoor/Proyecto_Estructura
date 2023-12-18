@@ -4,72 +4,77 @@
  * Modified: mi�rcoles, 13 de diciembre de 2023 12:35:32
  * Purpose: Implementation of the class Cuota
  ***********************************************************************/
-
 #include "Cuota.h"
+#include <iostream>
 
-int Cuota::ActualizarSaldo(void){
-   //implementar
-}
-
-int Cuota::DetallesdeCouta(void){
-   //implementar
-}
-
-
-int Cuota::getMontoPrincipal(void)
+// Constructor predeterminado
+Cuota::Cuota()
+    : MontoPrincipal(0), MontodeInteres(0), MontoTotal(0), SaldoPendiente(0)
 {
-   return MontoPrincipal;
 }
 
-void Cuota::setMontoPrincipal(int newMontoPrincipal)
+// Constructor con parámetros
+Cuota::Cuota(double montoPrincipal, double montoInteres, double montoTotal, Fecha fechaDePago, double saldoPendiente)
+    : MontoPrincipal(montoPrincipal), MontodeInteres(montoInteres), MontoTotal(montoTotal), FechadePago(fechaDePago), SaldoPendiente(saldoPendiente)
 {
-   MontoPrincipal = newMontoPrincipal;
 }
 
-int Cuota::getMontodeInteres(void)
+double Cuota::getMontoPrincipal() const
 {
-   return MontodeInteres;
+    return MontoPrincipal;
 }
 
-
-void Cuota::setMontodeInteres(int newMontodeInteres)
+void Cuota::setMontoPrincipal(double monto)
 {
-   MontodeInteres = newMontodeInteres;
+    MontoPrincipal = monto;
 }
 
-
-int Cuota::getMontoTotal(void)
+double Cuota::getMontoInteres() const
 {
-   return MontoTotal;
+    return MontodeInteres;
 }
 
-
-void Cuota::setMontoTotal(int newMontoTotal)
+void Cuota::setMontoInteres(double monto)
 {
-   MontoTotal = newMontoTotal;
+    MontodeInteres = monto;
 }
 
-
-int Cuota::getFechadePago(void)
+double Cuota::getMontoTotal() const
 {
-   return FechadePago;
+    return MontoTotal;
 }
 
-
-
-void Cuota::setFechadePago(int newFechadePago)
+void Cuota::setMontoTotal(double monto)
 {
-   FechadePago = newFechadePago;
+    MontoTotal = monto;
 }
 
-
-int Cuota::getSaldoPendiente(void)
+Fecha Cuota::getFechaDePago() const
 {
-   return SaldoPendiente;
+    return FechadePago;
 }
 
-
-void Cuota::setSaldoPendiente(int newSaldoPendiente)
+void Cuota::setFechaDePago(Fecha fecha)
 {
-   SaldoPendiente = newSaldoPendiente;
+    FechadePago = fecha;
+}
+
+double Cuota::getSaldoPendiente() const
+{
+    return SaldoPendiente;
+}
+
+void Cuota::setSaldoPendiente(double saldo)
+{
+    SaldoPendiente = saldo;
+}
+
+void Cuota::MostrarCuota() const
+{
+    std::cout << "Monto Principal: " << MontoPrincipal << std::endl;
+    std::cout << "Monto de Interés: " << MontodeInteres << std::endl;
+    std::cout << "Monto Total: " << MontoTotal << std::endl;
+    std::cout << "Fecha de Pago: ";
+    FechadePago.MostrarFecha();  // Asumo que la clase Fecha tiene una función MostrarFecha() para mostrar la fecha
+    std::cout << "Saldo Pendiente: " << SaldoPendiente << std::endl;
 }

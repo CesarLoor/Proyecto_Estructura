@@ -72,3 +72,27 @@ void ListaDoble<T>::Mostrar() {
     }
     std::cout << std::endl;
 }
+    // Funciones para la tabla de amortización alemana
+template <typename T>
+void ListaDoble<T>::InsertarCuota(Cuota cuota) {
+    Nodo<T>* nuevo = new Nodo<T>(cuota);  // Utilizamos Nodo<T> en lugar de Nodo<Cuota>
+    if (primero == nullptr) {
+        primero = nuevo;
+        ultimo = nuevo;
+    } else {
+        ultimo->setSiguiente(nuevo);
+        nuevo->setAnterior(ultimo);
+        ultimo = nuevo;
+    }
+}
+
+template <typename T>
+void ListaDoble<T>::MostrarTablaAmortizacion() {
+    Nodo<T>* aux = primero;
+    while (aux != nullptr) {
+        aux->getDato().MostrarCuota();  // Asumo que Cuota tiene una función MostrarCuota() para mostrar sus datos
+        std::cout << " -> ";
+        aux = aux->getSiguiente();
+    }
+    std::cout << std::endl;
+}
