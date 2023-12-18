@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  menu.cpp
- * Author:  Cesar Loor 
+ * Author:  Cesar Loor and Carlos Jaya
  * Modified: Viernes, 15 de diciembre de 2023 15:00:00
  * Purpose: Implementation of the function menu
  * contacto: ciloor2@espe.edu.ec 
@@ -66,11 +66,16 @@ int manejarMenu() {
 
     } while (tecla != 13);  
 
-    
+    generarTablaAmortizacion();
+
     mostrarContenidoOpcion(opcion);
 
     std::cout << "\nPresiona Enter para salir...";
     std::cin.get();
 
     return opcion;
+}
+
+void generarTablaAmortizacion(){
+    //implementar
 }

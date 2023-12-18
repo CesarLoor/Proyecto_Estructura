@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Fecha.h
- * Author:  Cesar Loor
+ * Author:  Cesar Loor and Carlos Jaya 
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:29:11
  * Purpose: Declaration of the class Fecha
  ***********************************************************************/
@@ -8,11 +8,11 @@
 #if !defined(__Modelo_Proyect_P1_Fecha_h)
 #define __Modelo_Proyect_P1_Fecha_h
 #include "ListaDoble.h"
-class Fecha
-{
+class Fecha{
 public:
    Fecha(int d, int m, int a);
    Fecha();
+
    int getDia(void);
    void setDia(int newDia);
    int getMes(void);
@@ -31,8 +31,5 @@ private:
    int dia;
    int mes;
    int anio;
-
-
 };
-
 #endif

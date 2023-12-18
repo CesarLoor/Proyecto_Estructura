@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Cuota.h
- * Author:  Cesar Loor
+ * Author:  Cesar Loor and Carlos Jaya
  * Modified: mi�rcoles, 13 de diciembre de 2023 12:35:32
  * Purpose: Declaration of the class Cuota
  ***********************************************************************/
@@ -8,9 +8,13 @@
 #if !defined(__Modelo_Proyect_P1_Cuota_h)
 #define __Modelo_Proyect_P1_Cuota_h
 
+#include"Fecha.h"
+
 class Cuota
+
 {
 public:
+
    int ActualizarSaldo(void);
    int DetallesdeCouta(void);
    int getMontoPrincipal(void);
@@ -23,6 +27,7 @@ public:
    void setFechadePago(int newFechadePago);
    int getSaldoPendiente(void);
    void setSaldoPendiente(int newSaldoPendiente);
+   
 
 protected:
 private:
@@ -31,6 +36,8 @@ private:
    int MontoTotal;
    int FechadePago;
    int SaldoPendiente;
+   Fecha FechadePago; // Cambiar el tipo de dato FechaDePago a Fecha
+   
 
 
 };
