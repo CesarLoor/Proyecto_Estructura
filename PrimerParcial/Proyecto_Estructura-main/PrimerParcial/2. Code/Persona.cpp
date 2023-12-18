@@ -1,0 +1,102 @@
+/***********************************************************************
+ * Module:  Persona.cpp
+ * Author:  Cesar Loor
+ * Modified: mi�rcoles, 13 de diciembre de 2023 1:33:02
+ * Purpose: Implementation of the class Persona
+ ***********************************************************************/
+
+#include "Persona.h"
+#include <string>
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::getNombre()
+// Purpose:    Implementation of Persona::getNombre()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Persona::getNombre(void)
+{
+   return Nombre;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::setNombre(std::string newNombre)
+// Purpose:    Implementation of Persona::setNombre()
+// Parameters:
+// - newNombre
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Persona::setNombre(std::string newNombre)
+{
+   Nombre = newNombre;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::getApellido()
+// Purpose:    Implementation of Persona::getApellido()
+// Return:     std::string
+////////////////////////////////////////////////////////////////////////
+
+std::string Persona::getApellido(void)
+{
+   return Apellido;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::setApellido(std::string newApellido)
+// Purpose:    Implementation of Persona::setApellido()
+// Parameters:
+// - newApellido
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Persona::setApellido(std::string newApellido)
+{
+   Apellido = newApellido;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::getCedula()
+// Purpose:    Implementation of Persona::getCedula()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+int Persona::getCedula(void)
+{
+   return cedula;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::setCedula(int newCedula)
+// Purpose:    Implementation of Persona::setCedula()
+// Parameters:
+// - newCedula
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Persona::setCedula(int newCedula)
+{
+   cedula = newCedula;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::Persona()
+// Purpose:    Implementation of Persona::Persona()
+// Return:     
+////////////////////////////////////////////////////////////////////////
+
+Persona::Persona()
+{
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::~Persona()
+// Purpose:    Implementation of Persona::~Persona()
+// Return:     
+////////////////////////////////////////////////////////////////////////
+
+Persona::~Persona()
+{
+   // TODO : implement
+}
