@@ -80,64 +80,139 @@ bool Fecha::fecha_valida() {
     
 }
 
-Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga){
-   Fecha fecha_nueva=fecha_de_paga;
-   int dias_por_mes = 31;
-      if (fecha_nueva.getMes() == 4 ||fecha_nueva.getMes() == 6 ||fecha_nueva.getMes() == 9 ||fecha_nueva.getMes() == 11) {
+Fecha Fecha::aumentar_dia_si_no_es_laborable(Fecha fecha_de_paga) {
+    Fecha fecha_nueva = fecha_de_paga;
+    int dias_por_mes = 31;
+
+    if (fecha_nueva.getMes() == 4 || fecha_nueva.getMes() == 6 || fecha_nueva.getMes() == 9 || fecha_nueva.getMes() == 11) {
         dias_por_mes = 30;
-      } else if (fecha_nueva.getMes() == 2) {
+    } else if (fecha_nueva.getMes() == 2) {
         dias_por_mes = es_bisiesto() ? 29 : 28;
     }
 
-         if (fecha_nueva.es_feriado()||fecha_nueva.dia_de_la_semana()==0||fecha_nueva.dia_de_la_semana()==1){
-            if (fecha_nueva.getDia()<dias_por_mes){
-               fecha_nueva.setDia(fecha_nueva.getDia()+1);
-               
-               
-               }else if(fecha_nueva.getMes()<12){
-                  fecha_nueva.setDia(1);
-                  fecha_nueva.setMes(fecha_nueva.getDia()+1);
+    if (fecha_nueva.es_feriado() || fecha_nueva.dia_de_la_semana() == 0 || fecha_nueva.dia_de_la_semana() == 1) {
+        if (fecha_nueva.getDia() < dias_por_mes) {
+            fecha_nueva.setDia(fecha_nueva.getDia() + 1);
+        } else if (fecha_nueva.getMes() < 12) {
+            fecha_nueva.setDia(1);
+            fecha_nueva.setMes(fecha_nueva.getMes() + 1);
+        } else {
+            fecha_nueva.setDia(1);
+            fecha_nueva.setMes(1);
+            fecha_nueva.setAnio(fecha_nueva.getAnio() + 1);
+        }
 
-               }else{
-                  fecha_nueva.setDia(1);
-                  fecha_nueva.setMes(1);
-                  fecha_nueva.setAnio(fecha_nueva.getAnio()+1);
 
-               }
-            
-
-         }
-         aumentar_dia_si_no_es_laborable(fecha_nueva);
-         return fecha_nueva;
+        fecha_nueva = aumentar_dia_si_no_es_laborable(fecha_nueva);
     }
 
+    return fecha_nueva;
+}
 
-ListaDoble<Fecha>* Fecha::dias_de_paga(Fecha fecha_de_paga)
+
+ListaDoble<Fecha>* Fecha::dias_de_paga(Fecha fecha_de_paga, int plazo)
 {  
    ListaDoble<Fecha>* lista_de_fechas =new ListaDoble<Fecha>();
-   
+   int limiteMeses, limiteAnios,dias_adicionales, fecha_limite_anios, fecha_limite_meses, dias_adicionales_limite, meses_adicionales_limite;
    Fecha fecha_nueva(fecha_de_paga.getDia(), fecha_de_paga.getMes(), fecha_de_paga.getAnio());
-   lista_de_fechas->Insertar(fecha_nueva);
-   int anio_destino=getAnio()+1;
-    int nuevo_dia = getDia();
-    int nuevo_mes = getMes();
-    int nuevo_anio = getAnio();
-   while(fecha_nueva.getAnio()!=anio_destino && fecha_nueva.getMes()!=fecha_de_paga.getMes()){
-      
-      
-      while (fecha_nueva.dia_de_la_semana() == 0 ||fecha_nueva.dia_de_la_semana() == 1 ||fecha_nueva.es_feriado()) {
-      
-   }
+int dias_por_mes = 31;
+   if (fecha_nueva.getMes() == 4 || fecha_nueva.getMes() == 6 || fecha_nueva.getMes() == 9 || fecha_nueva.getMes() == 11) {
+        dias_por_mes = 30;
+    } else if (fecha_nueva.getMes() == 2) {
+        dias_por_mes = es_bisiesto() ? 29 : 28;
+    }
+   switch (plazo) {
+        case 1:
+            limiteMeses=3;
+            limiteAnios=0;
+            break;
+        case 2:
+            limiteMeses=6;
+            limiteAnios=0;
+            break;
+        case 3:
+            limiteMeses=9;
+            limiteAnios=0;
+            break;
+        case 4:
+            limiteMeses=0;
+            limiteAnios=1;
+            break;
+        default:
+            limiteMeses=0;
+            limiteAnios=5;
+            break;
+    }
+   Fecha fecha_limite(fecha_de_paga.getDia(), fecha_de_paga.getMes()+limiteMeses, fecha_de_paga.getAnio()+limiteAnios);
+    int dias_por_mes_limite = 31;
+   if (fecha_limite.getMes() == 4 || fecha_limite.getMes() == 6 || fecha_limite.getMes() == 9 || fecha_limite.getMes() == 11) {
+        dias_por_mes_limite = 30;
+    } else if (fecha_limite.getMes() == 2) {
+        dias_por_mes_limite = es_bisiesto() ? 29 : 28;
+    }
+      if(fecha_limite.getDia()>dias_por_mes_limite){
+         dias_adicionales_limite=fecha_limite.getDia()-dias_por_mes_limite;
+         fecha_limite.setDia(dias_adicionales_limite);
+         fecha_limite.setMes(fecha_limite.getMes()+1);
+
+
+      }
+      if(fecha_limite.es_feriado()){
+         fecha_limite=aumentar_dia_si_no_es_laborable(fecha_limite);
+      }
+      if(fecha_limite.getMes()>12){
+            meses_adicionales_limite=fecha_limite.getMes()-12;
+            fecha_limite.setMes(meses_adicionales_limite);
+            if(fecha_limite.getDia()>dias_por_mes_limite){
+         dias_adicionales_limite=fecha_limite.getDia()-dias_por_mes_limite;
+         fecha_limite.setDia(dias_adicionales_limite);
+         fecha_limite.setMes(fecha_limite.getMes()+1);
+
+
+      }
+      if(fecha_limite.es_feriado()){
+         fecha_limite=aumentar_dia_si_no_es_laborable(fecha_limite);
+      }
+            
+            fecha_limite.setAnio(fecha_limite.getAnio()+1);
+
+
+         }
     
 
-      fecha_nueva.setAnio(nuevo_anio);
-      fecha_nueva.setMes(nuevo_mes);
-      fecha_nueva.setDia(nuevo_dia);
-    
-    
-    
-}
-return lista_de_fechas;
+    if(fecha_nueva.es_feriado()){
+      fecha_nueva=aumentar_dia_si_no_es_laborable(fecha_nueva);
+      lista_de_fechas->Insertar(fecha_nueva);
+   }else{
+      lista_de_fechas->Insertar(fecha_nueva);
+   }
+
+
+   
+   while (fecha_nueva.getAnio()!=fecha_limite.getAnio() && fecha_nueva.getMes()!=fecha_limite.getMes()){
+      int dias_usuales=fecha_de_paga.getDia();
+      if (fecha_nueva.getMes()==12){
+         fecha_nueva.setMes(1);
+         fecha_nueva.setDia(dias_usuales);
+         fecha_nueva.setAnio(fecha_nueva.getAnio()+1);
+
+      }else if(fecha_nueva.getDia()!=dias_usuales){
+            if(fecha_nueva.getDia()>dias_por_mes){
+            dias_adicionales=fecha_nueva.getDia()-dias_usuales;
+            fecha_nueva.setDia(dias_adicionales);
+            fecha_nueva.setMes(fecha_nueva.getMes()+1);
+         }else{
+            fecha_nueva.setDia(dias_usuales);
+            fecha_nueva.setMes(fecha_nueva.getMes()+1);
+            
+         }
+
+      } 
+
+
+   }   
+   
+   return lista_de_fechas;
 }
 int Fecha::dia_de_la_semana() {
     if (!fecha_valida()) {
