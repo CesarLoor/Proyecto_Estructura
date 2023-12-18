@@ -2,12 +2,12 @@
  * Module:  Fecha.cpp
  * Author:  Cesar Loor and Carlos jaya
  * Modified: mi�rcoles, 13 de diciembre de 2023 1:29:11
- * Purpose: Implementation of the class Fecha
+ * Purpose: Implementation of the class Fecha.
  ***********************************************************************/
 #include <iostream>
 #include "Fecha.h"
 #include "ListaDoble.h"
-
+//commit1
 Fecha::Fecha(int d, int m, int a)
 {
    dia=d;
