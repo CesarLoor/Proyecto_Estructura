@@ -36,8 +36,6 @@ private:
    int MontoTotal;
    int FechadePago;
    int SaldoPendiente;
-   Fecha FechadePago; // Cambiar el tipo de dato FechaDePago a Fecha
-   
 
 
 };
