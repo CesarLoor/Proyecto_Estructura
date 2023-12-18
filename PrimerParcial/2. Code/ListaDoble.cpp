@@ -1,12 +1,12 @@
-
 /***********************************************************************
  * Module:  ListaDoble.cpp
- * Author:  PC DIGITAL
- * Modified: mi�rcoles, 13 de diciembre de 2023 1:32:00
+ * Author:  Carlos Jaya
+ * Modified: miercoles, 13 de diciembre de 2023 1:32:00
  * Purpose: Declaration of the class Operaciones
  ***********************************************************************/
 
 #include "ListaDoble.h" 
+#include "Nodo.h"
 #include <iostream>
 template <typename T>
 ListaDoble<T>::ListaDoble() {

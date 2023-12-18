@@ -10,6 +10,10 @@
 #include "Nodo.h"
 #include "ListaDoble.h"
 #include "Fecha.h"
+#include "Cuota.h"
+#include "Fecha.h"
+
+void generarTablaAmortizacion();
 
 void mostrarContenidoOpcion(int opcion) {
     switch (opcion) {
@@ -20,7 +24,7 @@ void mostrarContenidoOpcion(int opcion) {
             std::cout << "Has seleccionado la Opcion 2. ";
             break;
         case 3:
-            std::cout << "Has seleccionado la Opcion 3. \n";
+            std::cout << "Has seleccionado la opcion 3.\n";
             break;
         case 4:
             std::cout << "Saliendo del programa. ¡Hasta luego!\n";
@@ -40,7 +44,7 @@ int manejarMenu() {
         std::cout <<"=== Menu ===\n";
         std::cout <<"1. Opcion 1\n";
         std::cout << "2. Opcion 2\n";
-        std::cout << "3. Opcion 3\n";
+        std::cout << "3. tabla\n";
         std::cout << "4. Salir\n";
         std::cout << "============\n";
 
@@ -66,7 +70,9 @@ int manejarMenu() {
 
     } while (tecla != 13);  
 
-    generarTablaAmortizacion();
+ 
+
+     generarTablaAmortizacion();
 
     mostrarContenidoOpcion(opcion);
 
@@ -74,8 +80,4 @@ int manejarMenu() {
     std::cin.get();
 
     return opcion;
-}
-
-void generarTablaAmortizacion(){
-    //implementar
 }

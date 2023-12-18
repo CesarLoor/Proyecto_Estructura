@@ -7,7 +7,8 @@
 
 #if !defined(__Modelo_Proyect_P1_Operaciones_h)
 #define __Modelo_Proyect_P1_Operaciones_h
-#include"nodo.cpp"
+#include"Nodo.cpp"
+
 
 using namespace std;
 template <typename T>
