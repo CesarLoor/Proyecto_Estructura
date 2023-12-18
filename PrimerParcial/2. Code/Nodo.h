@@ -8,7 +8,6 @@
 
 #if !defined(__Class_Diagram_1_Nodo_h)
 #define __Class_Diagram_1_Nodo_h
-
 template <typename T>
 class Nodo
 {
